@@ -1,0 +1,41 @@
+
+# KiCAD Temporary files
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups
+*fs2_kicad_lib/
+*.kicad_prl
+*.sch-bak
+*~
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+*auto_saved_files*
+
+# Gerber files
+*.gb
+*.gbl
+*.gbs
+*.gbp
+*.gbo
+*.gtl
+*.gts
+*.gtp
+*.gto
+*.g2
+*.g3
+*.drl
+*.gbrjob
+*.gm1
+
+# Netlist files (exported from Eeschema)
+*.net
+
+# Exported BOM files
+*.xml
+*.csv

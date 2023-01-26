@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Foresail)(type KiCad)(uri ${KIPRJMOD}/../../kicad-libs/symbols)(options "")(descr "Foresail footprint library"))
+)

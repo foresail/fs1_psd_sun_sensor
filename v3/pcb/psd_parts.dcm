@@ -1,0 +1,12 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP SN74TVC3306
+D Digital Bus Switch Ics, Dual Voltage Clamp
+F http://www.ti.com/lit/ds/symlink/sn74tvc3306.pdf
+$ENDCMP
+#
+$CMP TLV733P-Q1
+F http://www.ti.com/lit/ds/symlink/tlv713p-q1.pdf
+$ENDCMP
+#
+#End Doc Library
