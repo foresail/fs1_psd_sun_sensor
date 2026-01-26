@@ -1,3 +1,3 @@
 (sym_lib_table
-  (lib (name Sun_Sensor)(type Legacy)(uri ${KIPRJMOD}/psd_parts.lib)(options "")(descr "Foresail PSD symbols library"))
+  (lib (name Sun_Sensor)(type Legacy)(uri ${KIPRJMOD}/pss_parts.lib)(options "")(descr "Foresail PSS symbols library"))
 )

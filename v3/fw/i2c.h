@@ -7,14 +7,14 @@
 /* Default slave I2C Address: */
 #define I2C_ADDRESS             0x4A
 /*
- * PSD sensor I2C addresses
+ * PSS sensor I2C addresses
 
-#define PSD_ADDR_XP             0x4A
-#define PSD_ADDR_XN             0x4B
-#define PSD_ADDR_YP             0x4C
-#define PSD_ADDR_YN             0x4D
-#define PSD_ADDR_ZP             0x4E
-#define PSD_ADDR_ZN             0x4F
+#define PSS_ADDR_XP             0x4A
+#define PSS_ADDR_XN             0x4B
+#define PSS_ADDR_YP             0x4C
+#define PSS_ADDR_YN             0x4D
+#define PSS_ADDR_ZP             0x4E
+#define PSS_ADDR_ZN             0x4F
  */
 
 /* Command codes: */

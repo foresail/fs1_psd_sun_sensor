@@ -1,0 +1,37 @@
+[
+   {
+      "directory" : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/Release",
+      "command"   : "clang++ -I\"/opt/ti/ccs/ccs_base/msp430/include\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform\" -I\"/opt/ti/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR2311__ -DBUS_EARLY_ADDRESS_SKIP -DV4X",
+      "file"      : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/adc.c"
+   },
+   {
+      "directory" : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/Release",
+      "command"   : "clang++ -I\"/opt/ti/ccs/ccs_base/msp430/include\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform\" -I\"/opt/ti/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR2311__ -DBUS_EARLY_ADDRESS_SKIP -DV4X",
+      "file"      : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus/bus.c"
+   },
+   {
+      "directory" : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/Release",
+      "command"   : "clang++ -I\"/opt/ti/ccs/ccs_base/msp430/include\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform\" -I\"/opt/ti/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR2311__ -DBUS_EARLY_ADDRESS_SKIP -DV4X",
+      "file"      : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus/bus_frame.c"
+   },
+   {
+      "directory" : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/Release",
+      "command"   : "clang++ -I\"/opt/ti/ccs/ccs_base/msp430/include\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform\" -I\"/opt/ti/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR2311__ -DBUS_EARLY_ADDRESS_SKIP -DV4X",
+      "file"      : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/calc.c"
+   },
+   {
+      "directory" : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/Release",
+      "command"   : "clang++ -I\"/opt/ti/ccs/ccs_base/msp430/include\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform\" -I\"/opt/ti/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR2311__ -DBUS_EARLY_ADDRESS_SKIP -DV4X",
+      "file"      : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/main.c"
+   },
+   {
+      "directory" : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/Release",
+      "command"   : "clang++ -I\"/opt/ti/ccs/ccs_base/msp430/include\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform\" -I\"/opt/ti/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR2311__ -DBUS_EARLY_ADDRESS_SKIP -DV4X",
+      "file"      : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform/timestamp.c"
+   },
+   {
+      "directory" : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/Release",
+      "command"   : "clang++ -I\"/opt/ti/ccs/ccs_base/msp430/include\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/bus\" -I\"/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/platform\" -I\"/opt/ti/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR2311__ -DBUS_EARLY_ADDRESS_SKIP -DV4X",
+      "file"      : "/mnt/data/aalto/Foresail1p/fs1p_adcs/psd_sunsensor/sw/telecommands.c"
+   }
+]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-    Control PSD Sun Sensor over FTDI 232H USB interface cable.
+    Control PSS Sun Sensor over FTDI 232H USB interface cable.
 """
 
 import sys
@@ -21,36 +21,36 @@ __all__ = [
 
 
 # Command codes:
-PSD_CMD_STATUS          = 0x01
-PSD_CMD_GET_RAW         = 0x03
-PSD_CMD_GET_POINT       = 0x04
-PSD_CMD_GET_VECTOR      = 0x05
-PSD_CMD_GET_ANGLES      = 0x06
-PSD_CMD_GET_ALL         = 0x07
-PSD_CMD_GET_TEMPERATURE = 0x08
-PSD_CMD_SET_CALIBRATION = 0x10
-PSD_CMD_GET_CALIBRATION = 0x11
-PSD_CMD_SET_I2C_ADDRESS = 0xE8
+PSS_CMD_STATUS          = 0x01
+PSS_CMD_GET_RAW         = 0x03
+PSS_CMD_GET_POINT       = 0x04
+PSS_CMD_GET_VECTOR      = 0x05
+PSS_CMD_GET_ANGLES      = 0x06
+PSS_CMD_GET_ALL         = 0x07
+PSS_CMD_GET_TEMPERATURE = 0x08
+PSS_CMD_SET_CALIBRATION = 0x10
+PSS_CMD_GET_CALIBRATION = 0x11
+PSS_CMD_SET_I2C_ADDRESS = 0xE8
 
 # Response codes:
-PSD_RSP_OK              = 0xF0
-PSD_RSP_SLEEP           = 0xF1
-PSD_RSP_RAW             = 0xF3
-PSD_RSP_POINT           = 0xF4
-PSD_RSP_VECTOR          = 0xF5
-PSD_RSP_ANGLES          = 0xF6
-PSD_RSP_ALL             = 0xF7
-PSD_RSP_TEMPERATURE     = 0xF8
-PSD_RSP_CALIBRATION     = 0xFA
-PSD_RSP_UNKNOWN_COMMAND = 0xFD
-PSD_RSP_INVALID_PARAM   = 0xFE
-PSD_RSP_ERROR           = 0xFF
+PSS_RSP_OK              = 0xF0
+PSS_RSP_SLEEP           = 0xF1
+PSS_RSP_RAW             = 0xF3
+PSS_RSP_POINT           = 0xF4
+PSS_RSP_VECTOR          = 0xF5
+PSS_RSP_ANGLES          = 0xF6
+PSS_RSP_ALL             = 0xF7
+PSS_RSP_TEMPERATURE     = 0xF8
+PSS_RSP_CALIBRATION     = 0xFA
+PSS_RSP_UNKNOWN_COMMAND = 0xFD
+PSS_RSP_INVALID_PARAM   = 0xFE
+PSS_RSP_ERROR           = 0xFF
 
 
 # Structures for data
 class RawMeasurement(NamedTuple):
     """
-    A raw PSD diode current measurement.
+    A raw PSS diode current measurement.
     Measured current are between 0 and 1024
     """
     x1: int
@@ -85,7 +85,7 @@ class AngleMeasurement(NamedTuple):
 
 class Calibration(NamedTuple):
     """
-    PSD Calibration value struct
+    PSS Calibration value struct
     """
     offset_x: int
     offset_y: int
@@ -95,14 +95,14 @@ class Calibration(NamedTuple):
 
 
 
-class PSDSunSensor:
+class PSSSunSensor:
     """
-    Class to communicate to single PSD Sun Sensor over I2C.
+    Class to communicate to single PSS Sun Sensor over I2C.
     """
 
     def __init__(self, addr: int, i2c: I2cController = None):
         """
-        Initialize connection to PSD Sun Sensor
+        Initialize connection to PSS Sun Sensor
         aka opens FTDI 232H I2C controller and and I2C port for the sensor.
 
         Args:
@@ -125,11 +125,11 @@ class PSDSunSensor:
             A RawMeasurement object
         """
 
-        self._port.write(struct.pack("B", PSD_CMD_GET_RAW))
+        self._port.write(struct.pack("B", PSS_CMD_GET_RAW))
         time.sleep(0.01)
 
         rsp = self._port.read(9)
-        if rsp[0] != PSD_RSP_RAW:
+        if rsp[0] != PSS_RSP_RAW:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
         return RawMeasurement(*struct.unpack("<xHHHH", rsp))
 
@@ -142,11 +142,11 @@ class PSDSunSensor:
             A PointMeasurement object
         """
 
-        self._port.write(struct.pack("B", PSD_CMD_GET_POINT))
+        self._port.write(struct.pack("B", PSS_CMD_GET_POINT))
         time.sleep(0.01)
 
         rsp = self._port.read(7)
-        if rsp[0] != PSD_RSP_POINT:
+        if rsp[0] != PSS_RSP_POINT:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
         return PointMeasurement(*struct.unpack("<xhhH", rsp))
 
@@ -159,11 +159,11 @@ class PSDSunSensor:
             A VectorMeasurement object
         """
 
-        self._port.write(struct.pack("B", PSD_CMD_GET_VECTOR))
+        self._port.write(struct.pack("B", PSS_CMD_GET_VECTOR))
         time.sleep(0.01)
 
         rsp = self._port.read(9)
-        if rsp[0] != PSD_RSP_VECTOR:
+        if rsp[0] != PSS_RSP_VECTOR:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
         return VectorMeasurement(*struct.unpack("<xhhhH", rsp))
 
@@ -176,11 +176,11 @@ class PSDSunSensor:
             A AngleMeasurement object
         """
 
-        self._port.write(struct.pack("B", PSD_CMD_GET_ANGLES))
+        self._port.write(struct.pack("B", PSS_CMD_GET_ANGLES))
         time.sleep(0.02)
 
         rsp = self._port.read(7)
-        if rsp[0] != PSD_RSP_ANGLES:
+        if rsp[0] != PSS_RSP_ANGLES:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
         meas = struct.unpack("<xHHH", rsp)
         return AngleMeasurement(meas[0] / 10, meas[1] / 10, meas[2])
@@ -194,11 +194,11 @@ class PSDSunSensor:
             A tuple containing RawMeasurement, PointMeasurement and AngleMeasurement object
         """
 
-        self._port.write(struct.pack("B", PSD_CMD_GET_ALL))
+        self._port.write(struct.pack("B", PSS_CMD_GET_ALL))
         time.sleep(0.2)
 
         rsp = self._port.read(21)
-        if rsp[0] != PSD_RSP_ALL:
+        if rsp[0] != PSS_RSP_ALL:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
 
         raw   =   RawMeasurement(*struct.unpack("<HHHH", rsp[1:9]))
@@ -216,10 +216,10 @@ class PSDSunSensor:
             Temperature reading in Celcius degrees.
         """
 
-        self._port.write(struct.pack("B", PSD_CMD_GET_TEMPERATURE))
+        self._port.write(struct.pack("B", PSS_CMD_GET_TEMPERATURE))
 
         rsp = self._port.read(3)
-        if rsp[0] != PSD_RSP_TEMPERATURE:
+        if rsp[0] != PSS_RSP_TEMPERATURE:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
         return struct.unpack("<xh", rsp)[0] / 10.0
 
@@ -235,11 +235,11 @@ class PSDSunSensor:
             set_calibration(sensor, Calibration(offset_x=0, offset_y=0, height=670, samples=1, temp_offset=650))
         """
 
-        self._port.write(struct.pack("<Bhhhhh", PSD_CMD_SET_CALIBRATION, *calib))
+        self._port.write(struct.pack("<Bhhhhh", PSS_CMD_SET_CALIBRATION, *calib))
         #time.sleep(0.05)
 
         rsp = self._port.read(1)
-        if rsp[0] != PSD_RSP_OK:
+        if rsp[0] != PSS_RSP_OK:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
 
 
@@ -251,11 +251,11 @@ class PSDSunSensor:
             A Calibration object
         """
 
-        self._port.write(struct.pack("B", PSD_CMD_GET_CALIBRATION))
+        self._port.write(struct.pack("B", PSS_CMD_GET_CALIBRATION))
         #time.sleep(0.05)
 
         rsp = self._port.read(11)
-        if rsp[0] != PSD_RSP_CALIBRATION:
+        if rsp[0] != PSS_RSP_CALIBRATION:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
         return Calibration(*struct.unpack("<xhhhhh", rsp))
 
@@ -272,10 +272,10 @@ class PSDSunSensor:
         for i in range(0, 256, 8):
 
             # Send 8 byte segment of the LUT
-            self._port.write(struct.pack("BB16h", PSD_CMD_SET_LUT, i, lut[i:i+8]))
+            self._port.write(struct.pack("BB16h", PSS_CMD_SET_LUT, i, lut[i:i+8]))
 
             rsp = self._port.read(1)
-            if rsp[0] != PSD_RSP_OK:
+            if rsp[0] != PSS_RSP_OK:
                 raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
 
 
@@ -287,18 +287,18 @@ class PSDSunSensor:
             addr: I2C address (from 0x00 to 0x7F)
         """
 
-        self._port.write(struct.pack("BB", PSD_CMD_SET_I2C_ADDRESS, addr))
+        self._port.write(struct.pack("BB", PSS_CMD_SET_I2C_ADDRESS, addr))
         time.sleep(0.01)
 
         rsp = self._port.read(1)
-        if rsp[0] != PSD_RSP_OK:
+        if rsp[0] != PSS_RSP_OK:
             raise RuntimeError(f"Sensor responded error 0x{rsp[0]:02x}")
 
 
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="PSD test tool")
+    parser = argparse.ArgumentParser(description="PSS test tool")
     auto_int = lambda x: int(x,0)
     parser.add_argument('--addr', '-a', type=auto_int, default=0x4A, help="Sensor I2C address")
     parser.add_argument('--rate', '-r', type=float, default=0.2, help="Sampling rate")
@@ -332,7 +332,7 @@ if __name__ == "__main__":
             try:
                 print(f"0x{addr:02X}: ", end='')
                 sensor = i2c.get_port(addr)
-                PSDSunSensor(addr, i2c).get_temperature()
+                PSSSunSensor(addr, i2c).get_temperature()
                 print("Found!")
             except I2cNackError:
                 print("NACK")
@@ -342,46 +342,46 @@ if __name__ == "__main__":
         sys.exit(0)
 
 
-    psd = PSDSunSensor(args.addr)
+    pss = PSSSunSensor(args.addr)
 
     # Read calibration
     if args.calib:
-        print(psd.get_calibration())
+        print(pss.get_calibration())
 
     # Set temperature offset
     if args.set_temp is not None:
-        calib = psd.get_calibration()
+        calib = pss.get_calibration()
         print("Old calibration:\n", calib)
         calib = calib._replace(temp_offset=args.set_temp)
-        psd.set_calibration(calib)
+        pss.set_calibration(calib)
         print("New calibration:\n", calib)
 
     # Set sensor I2C address
     if args.set_addr:
         print("Setting I2C address to 0x%02x" % args.set_addr)
-        psd.set_i2c_address(args.set_addr)
+        pss.set_i2c_address(args.set_addr)
 
     # Set calibration sensor offset and height
     if args.set_offset:
-        calib = psd.get_calibration()
+        calib = pss.get_calibration()
         print("Old calibration:\n", calib)
         calib = Calibration(args.set_offset[0], args.set_offset[1], args.set_offset[2], \
             calib.samples, calib.temp_offset)
-        psd.set_calibration(calib)
+        pss.set_calibration(calib)
         print("New calibration:\n", calib)
 
     # Infinite sampling loop
     if args.raw or args.point or args.vector or args.angles or args.temp:
         while True:
             if args.raw:
-                print("%5d %5d %5d %5d" % psd.get_raw())
+                print("%5d %5d %5d %5d" % pss.get_raw())
             if args.point:
-                print("%5d %5d %5d" % psd.get_point())
+                print("%5d %5d %5d" % pss.get_point())
             if args.vector:
-                print("%5d %5d %5d %5d" % psd.get_vector())
+                print("%5d %5d %5d %5d" % pss.get_vector())
             if args.angles:
-                print("%5.2f %5.2f %5d" % psd.get_angles())
+                print("%5.2f %5.2f %5d" % pss.get_angles())
             if args.temp:
-                print("%.1f °C" % psd.get_temperature())
+                print("%.1f °C" % pss.get_temperature())
 
             time.sleep(args.rate)

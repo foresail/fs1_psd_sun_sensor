@@ -1,0 +1,9 @@
+"./adc.obj"
+"./calc.obj"
+"./main.obj"
+"./telecommands.obj"
+"./bus/bus.obj"
+"./bus/bus_frame.obj"
+"./platform/timestamp.obj"
+"../lnk_msp430fr2311.cmd"
+-llibc.a

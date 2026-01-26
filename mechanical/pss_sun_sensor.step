@@ -9,7 +9,7 @@ FILE_DESCRIPTION(
 /* implementation_level */ '2;1');
 
 FILE_NAME(
-/* name */ 'psd_sun_sensor.step',
+/* name */ 'pss_sun_sensor.step',
 /* time_stamp */ '2023-01-25T22:04:59+02:00',
 /* author */ (''),
 /* organization */ (''),
@@ -26907,7 +26907,7 @@ SOLID_ANGLE_UNIT()
 #26398=SHAPE_REPRESENTATION('',(#17355),#26325);
 #26399=SHAPE_REPRESENTATION('',(#17441),#26326);
 #26400=PRODUCT_DEFINITION_CONTEXT('part definition',#26453,'design');
-#26401=PRODUCT_DEFINITION('PSD Main Assembly','PSD Main Assembly v6',#26418,
+#26401=PRODUCT_DEFINITION('PSS Main Assembly','PSS Main Assembly v6',#26418,
 #26400);
 #26402=PRODUCT_DEFINITION('PCB Assembly','PCB Assembly v4',#26419,#26400);
 #26403=PRODUCT_DEFINITION('Simplfied PCB','Simplfied PCB v1',#26420,#26400);
@@ -26946,8 +26946,8 @@ SOLID_ANGLE_UNIT()
 #26432=PRODUCT_DEFINITION_FORMATION('',$,#26469);
 #26433=PRODUCT_DEFINITION_FORMATION('',$,#26470);
 #26434=PRODUCT_DEFINITION_FORMATION('',$,#26471);
-#26435=PRODUCT_RELATED_PRODUCT_CATEGORY('PSD Main Assembly v6',
-'PSD Main Assembly v6',(#26455));
+#26435=PRODUCT_RELATED_PRODUCT_CATEGORY('PSS Main Assembly v6',
+'PSS Main Assembly v6',(#26455));
 #26436=PRODUCT_RELATED_PRODUCT_CATEGORY('PCB Assembly v4',
 'PCB Assembly v4',(#26456));
 #26437=PRODUCT_RELATED_PRODUCT_CATEGORY('Simplfied PCB v1',
@@ -26976,7 +26976,7 @@ SOLID_ANGLE_UNIT()
 #26453=APPLICATION_CONTEXT(
 'Core Data for Automotive Mechanical Design Process');
 #26454=PRODUCT_CONTEXT('part definition',#26453,'mechanical');
-#26455=PRODUCT('PSD Main Assembly','PSD Main Assembly v6',$,(#26454));
+#26455=PRODUCT('PSS Main Assembly','PSS Main Assembly v6',$,(#26454));
 #26456=PRODUCT('PCB Assembly','PCB Assembly v4',$,(#26454));
 #26457=PRODUCT('Simplfied PCB','Simplfied PCB v1',$,(#26454));
 #26458=PRODUCT('Hamamatsu S5990-01','Hamamatsu S5990-01 v1',$,(#26454));

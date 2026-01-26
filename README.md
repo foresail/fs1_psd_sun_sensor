@@ -1,15 +1,15 @@
-# Foresail-1 PSD Sun Sensor
+# Foresail-1 PSS Sun Sensor
 
-This repository contains the public available design files for the PSD sun sensor designed for the Foresail-1 Cubesat.
+This repository contains the public available design files for the PSS sun sensor designed for the Foresail-1 Cubesat.
 
-![PSD Sun Sensor Prototype v2](docs/psd_v2.jpg)
+![PSS Sun Sensor Prototype v2](docs/pss_v2.jpg)
 
 The general characteristics of sensor design are:
 - Dimensions: 24 mm × 16 mm × 6 mm
 - Mass: 4 grams
 - Panel mountedable into 14x14 mm hole with two M2 screws.
 - Electrical connection by soldering on the panel PCB or by harness.
-- FOV: ~100 degrees, resolution: 0.13°, accuracy: ±1° (discussed in the desgin document)
+- FOV: ~100 degrees, resolution: 0.13°, accuracy: ±1°
 - Refresh rate up to 100 Hz. (Sampling time: 4 ms + communication overhead)
 - Can provide following data products:
     - Raw current measurements
@@ -23,10 +23,11 @@ The general characteristics of sensor design are:
 
 ## Documentation
 
-- [FS1 ADCS PSD Sun Sensor Design Document](docs/FS1_ADCS_PSD_Sun_Sensor_Design_Document.pdf)
-- [Version 3 schematic (I2C variant)](v3/v3_schema.pdf)
+- [FS1 ADCS PSS Sun Sensor Design Document](docs/FS1p_ADCS_PSS_Sun_Sensor_Design_Document.pdf)
+- [Version 3 schematic (I2C variant)](v3/pss_v3_schema.pdf)
 - [Version 3 firmware source code](v3/fw)
-- [Version 4 schematic (RS-485 variant)](v4/v4_schema.pdf)
+- [Version 4 schematic (RS-485 variant)](v4/pss_v4_schema.pdf)
+- [Version 4 firmware source code](v4/fw)
 - [Calibration and test tools for PC](calibration)
 - [Mechanical design files](mechanical)
 

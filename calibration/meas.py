@@ -7,13 +7,13 @@ import time, datetime
 import os, csv
 
 from thor import ThorRotator
-from psd import PSDSunSensor, Calibration
+from pss import PSSSunSensor, Calibration
 import numpy as np
 import matplotlib.pyplot as plt
 
 import argparse
 
-parser = argparse.ArgumentParser(description="PSD measurement tool")
+parser = argparse.ArgumentParser(description="PSS measurement tool")
 auto_int = lambda x: int(x,0)
 parser.add_argument('--addr', '-a', type=auto_int, default=0x4A, help="Sensor I2C address")
 parser.add_argument('--device', '-D', default="/dev/ttyUSB0", help="Stepper motor Serial device")
@@ -27,7 +27,7 @@ parser.add_argument('-w', '--write', dest="save_path",
 
 args = parser.parse_args()
 
-info = "_psd_%x" % args.addr
+info = "_pss_%x" % args.addr
 if args.constant:
     info += "_constant"
 fname = datetime.datetime.now().isoformat("_") + info
@@ -47,12 +47,12 @@ with open(csv_fname, 'w') as csvfile:
     # creating a csv writer object 
     csvwriter = csv.writer(csvfile) 
 
-    psd = PSDSunSensor(args.addr)
-    psd.set_calibration(Calibration(0, 0, 670, 1, 639))
+    pss = PSSSunSensor(args.addr)
+    pss.set_calibration(Calibration(0, 0, 670, 1, 639))
     thor = ThorRotator(device=args.device)
 
     # Read the current calibration and write it to measurement file
-    calib = psd.get_calibration()
+    calib = pss.get_calibration()
     print(calib)
     
     csvwriter.writerow(["Calibaration:"])
@@ -73,7 +73,7 @@ with open(csv_fname, 'w') as csvfile:
             # Measure
             while True:
                 try:
-                    pos = psd.get_point()
+                    pos = pss.get_point()
                 except:
                     continue
                 break
@@ -100,7 +100,7 @@ with open(csv_fname, 'w') as csvfile:
                 # Measure
                 while True:
                     try:
-                        pos = psd.get_point()
+                        pos = pss.get_point()
                     except:
                         continue
                     break
@@ -136,7 +136,7 @@ axes[2].set_xlabel('Angle')
 
 axes[2].set_ylim([0, 1024])
 
-fig.suptitle("PSD %x" % args.addr)
+fig.suptitle("PSS %x" % args.addr)
 
 plt.show()
 
