@@ -2,6 +2,8 @@
 
 This repository contains the public available design files for the PSS sun sensor designed for the Foresail-1 Cubesat.
 
+The performance and testing of this sensor has been documented in [this article](https://doi.org/10.1016/j.asr.2026.01.083).
+
 ![PSS Sun Sensor Prototype v2](docs/pss_v2.jpg)
 
 The general characteristics of sensor design are:
@@ -23,6 +25,7 @@ The general characteristics of sensor design are:
 
 ## Documentation
 
+- [Research Paper](https://doi.org/10.1016/j.asr.2026.01.083)
 - [FS1 ADCS PSS Sun Sensor Design Document](docs/FS1p_ADCS_PSS_Sun_Sensor_Design_Document.pdf)
 - [Version 3 schematic (I2C variant)](v3/pss_v3_schema.pdf)
 - [Version 3 firmware source code](v3/fw)
